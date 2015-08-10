@@ -1,0 +1,26 @@
+{
+  "name": "machinepack-cic",
+  "version": "0.1.0",
+  "description": "Communicate with the CIC ICWS API",
+  "scripts": {
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
+  },
+  "keywords": [
+    "CIC",
+    "machines",
+    "machinepack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies":{
+    "machine": "^10.0.0"
+  },
+  "devDependencies": {
+    "test-machinepack-mocha": "^2.0.0"
+  },
+  "machinepack": {
+    "friendlyName": "CIC",
+    "machineDir": "machines/",
+    "machines": ["say-hello"]
+  }
+}
