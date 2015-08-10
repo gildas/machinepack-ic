@@ -1,4 +1,3 @@
-
 <h1>
   <a href="http://node-machine.org" title="Node-Machine public registry"><img alt="node-machine logo" title="Node-Machine Project" src="http://node-machine.org/images/machine-anthropomorph-for-white-bg.png" width="50" /></a>
   machinepack-cic
@@ -9,7 +8,7 @@
 Communicate with the CIC ICWS API
 
 
-## Installation &nbsp; [![NPM version](https://badge.fury.io/js/machinepack-cic.svg)](http://badge.fury.io/js/machinepack-cic) [![Build Status](https://travis-ci.org/mikermcneil/machinepack-cic.png?branch=master)](https://travis-ci.org/mikermcneil/machinepack-cic)
+## Installation &nbsp; [![NPM version](https://badge.fury.io/js/machinepack-cic.svg)](http://badge.fury.io/js/machinepack-cic) [![Build Status](https://travis-ci.org/.png?branch=master)](https://travis-ci.org/)
 
 ```sh
 $ npm install machinepack-cic

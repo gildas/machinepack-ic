@@ -24,6 +24,7 @@
     "machines": [
       "say-hello",
       "connect"
-    ]
+    ],
+    "testsUrl": "https://travis-ci.org/"
   }
 }
