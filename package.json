@@ -12,7 +12,7 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies":{
+  "dependencies": {
     "machine": "^10.0.0"
   },
   "devDependencies": {
@@ -21,6 +21,9 @@
   "machinepack": {
     "friendlyName": "CIC",
     "machineDir": "machines/",
-    "machines": ["say-hello"]
+    "machines": [
+      "say-hello",
+      "connect"
+    ]
   }
 }
