@@ -53,7 +53,9 @@ module.exports = { // {{{
   exits: { // {{{2
     success: { // {{{3
       example: {
-        sessionId:      '{{A session identifier}}',
+        url:            'url to use',
+        icserver:       'the connected Interaction Center server',
+        id:             '{{A session identifier}}',
         token:          '{{A complex blob string}}', 
         cookie:         '{{A web cookie}}',
         alternateHosts: ['server1', 'server2' ],
@@ -165,12 +167,15 @@ module.exports = { // {{{
 
           if (cookie.search(/^icws_/) > -1)
           {
+          console.log('>> ' + JSON.stringify(body));
             return exits.success({
-              sessionId:      body.sessionId,
+              url:            inputs.protocol + '://' + inputs.server + ':' + inputs.port + '/icws',
+              icserver:       body.icServer,
+              id:             body.sessionId,
               token:          body.csrfToken,
               cookie:         cookie,
               alternateHosts: body.alternateHostList,
-              user:           { id: body.userID, display: body.displayName },
+              user:           { id: body.userID, display: body.userDisplayName },
             });
           }
         }
