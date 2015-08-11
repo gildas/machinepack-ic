@@ -22,7 +22,8 @@
     "friendlyName": "CIC",
     "machineDir": "machines/",
     "machines": [
-      "connect"
+      "connect",
+      "disconnect"
     ],
     "testsUrl": "https://travis-ci.org/"
   }
