@@ -60,6 +60,7 @@ module.exports = { // {{{
         cookie:         '{{A web cookie}}',
         alternateHosts: ['server1', 'server2' ],
         user:           { id: 'userid', display: 'display name' },
+        language:       'en-US',
       },
     }, // }}}3
     missingProperty: { example: { name: 'property_name', message: 'Human readable error text' } },
@@ -95,7 +96,7 @@ module.exports = { // {{{
         method:  'POST',
         url:     inputs.protocol + '://' + inputs.server + ':' + inputs.port + '/icws/connection',
         headers: {
-          'Accept-Language': 'en-US',
+          'Accept-Language': inputs.language,
         },
         json: {
           __type:          'urn:inin.com:connection:icAuthConnectionRequestSettings',
@@ -176,6 +177,7 @@ module.exports = { // {{{
               cookie:         cookie,
               alternateHosts: body.alternateHostList,
               user:           { id: body.userID, display: body.userDisplayName },
+              language:       inputs.language,
             });
           }
         }

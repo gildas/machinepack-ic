@@ -6,11 +6,12 @@ module.exports = {
   inputs: { // {{{2
     session: { // {{{3
       example: {
-        url: 'https://cic.acme.com:8019/icws',
-        id: '1247633034',
-        token: 'WAlsaW5lYWRtaW5YC25vZGVqcyB0ZXN0Wab9022567N2OC1kNjZiLTRlMDUtODg1OS05MDg1NDMxOTFjMTNYDTE3Mi4yMi4xNi4xMzxU',
-        cookie: 'icws_1247633034=6eabffb3-c873-4161-a777-6edfb6e189ab; Path=/icws/1247633034; HttpOnly',
+        url:      'https://cic.acme.com:8019/icws',
+        id:       '1247633034',
+        token:    'WAlsaW5lYWRtaW5YC25vZGVqcyB0ZXN0Wab9022567',
+        cookie:   'icws_1247633034=6eabffb3-c873-4161-a777-6edfb6e189ab; Path=/icws/1247633034; HttpOnly',
         icserver: 'cic.acme.com',
+        language: 'en-US',
       },
       description: 'The Session to disconnect from',
       required: true,
