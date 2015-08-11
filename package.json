@@ -1,25 +1,33 @@
 {
-  "name": "machinepack-cic",
+  "name": "machinepack-ic",
   "version": "0.1.0",
-  "description": "Communicate with the CIC ICWS API",
+  "description": "Communicate with Interaction Center® servers via the ICWS API",
   "scripts": {
     "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
   },
   "keywords": [
     "CIC",
+    "Interaction Center",
+    "Interactive Intelligence",
     "machines",
     "machinepack"
   ],
-  "author": "",
+  "author": "Gildas Cherruel",
   "license": "MIT",
   "dependencies": {
+    "request": "^2.60.0",
     "machine": "^10.0.0"
   },
   "devDependencies": {
+    "mocha": "^2.2.0",
     "test-machinepack-mocha": "^2.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gildas/machinepack-ic.git"
+  },
   "machinepack": {
-    "friendlyName": "CIC",
+    "friendlyName": "IC",
     "machineDir": "machines/",
     "machines": [
       "connect",
