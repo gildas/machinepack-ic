@@ -115,50 +115,71 @@ module.exports = { // {{{
         console.log('Status: ' + response.statusCode);
         if (response.statusCode >= 300 || response.StatusCode < 200)
         {
+          var error_info = {
+            __type:    'urn:inin.com:common:unknownError',
+            errorId:   'error.request.unknownError',
+            errorCode: -1,
+            message:   'Unknown error'
+          };
+
+          if (body.length > 0) // TODO: Also check the content-type
+          {
+            try
+            {
+              error_info = JSON.parse(body);
+            }
+            catch(e)
+            {
+              console.log("Body was not a JSON object.\n" + e);
+              error_info.message = body;
+            }
+          }
           switch(response.statusCode)
           {
             case 400: // Bad Request
               console.log("Error 400: Bad Request\nOriginal error: " + body);
-              if (body.__type === 'urn:inin.com:common:missingPropertyError')
+              if (error_info.__type === 'urn:inin.com:common:missingPropertyError')
               {
-                return exits.missingProperty({ name: body.propertyName, message: body.message });
+                return exits.missingProperty({ name: error_info.propertyName, message: error_info.message });
               }
-              else if (body.errorId === 'error.request.invalidRepresentation.invalidProperty')
+              else if (error_info.errorId === 'error.request.invalidRepresentation.invalidProperty')
               {
-                return exits.invalidProperty({ message: body.message });
+                return exits.invalidProperty({ message: error_info.message });
               }
               else
               {
-                return exits.icws_error(body);
+                return exits.icws_error(error_info);
               }
               break;
             case 410: // Gone
               console.log("Error 410: Gone\nOriginal error: " + body);
+              return exits.deprecatedResource({ name: 'disconnect', message: error_info.message });
               break;
             case 500: // Internal Server Error
               console.log("Error 500: Internal Server Error\nOriginal error: " + body);
+              return exits.icws_error(error_info);
               break;
             case 503: // Service Unavailable
               console.log("Error 503: Service Unavailable\nOriginal error: " + JSON.stringify(body));
-              if (body.errorId === 'error.server.notAcceptingConnections')
+              if (error_info.errorId === 'error.server.notAcceptingConnections')
               {
-                console.log('server ' + inputs.server + ' is not accepting connections. Alternates: [' + body.alternateHostList.join() + ']');
-                return exits.notAcceptingConnections({ alternateHosts: body.alternateHostList, message: body.message });
+                console.log('server ' + inputs.server + ' is not accepting connections. Alternates: [' + error_info.alternateHostList.join() + ']');
+                return exits.notAcceptingConnections({ alternateHosts: error_info.alternateHostList, message: error_info.message });
               }
-              else if (body.errorId === 'error.server.unavailable')
+              else if (error_info.errorId === 'error.server.unavailable')
               {
-                console.log('server ' + inputs.server + ' is not available. Alternates: [' + body.alternateHostList.join() + ']');
-                return exits.serverUnavailable({ alternateHosts: body.alternateHostList, message: body.message });
+                console.log('server ' + inputs.server + ' is not available. Alternates: [' + error_info.alternateHostList.join() + ']');
+                return exits.serverUnavailable({ alternateHosts: error_info.alternateHostList, message: error_info.message });
               }
               else
               {
-                console.log('Unknown error ' + error.status + ' when connecting to server ' + server);
-                return exits.icws_error(body);
+                console.log('Unknown error ' + response.statusCode + ' when connecting to server ' + server);
+                return exits.icws_error(error_info);
               }
               break;
             default: // Other errors
               console.log("Error " + response.statusCode + "\nOriginal error: " + JSON.stringify(body));
-              return exits.error(body);
+              return exits.error(error_info);
           }
         }
         console.log('Connected to ' + inputs.server + ' as ' + body.userID);

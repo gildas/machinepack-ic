@@ -146,7 +146,7 @@ module.exports = {
               break;
             default: // Other errors
               console.log("Error " + response.statusCode + "\nOriginal error: " + JSON.stringify(body));
-              return exits.error(body);
+              return exits.error(error_info);
           }
         }
         console.log('Disconnected from session ' + inputs.session.id);
