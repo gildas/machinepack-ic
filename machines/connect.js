@@ -1,6 +1,6 @@
 module.exports = { // {{{
   friendlyName: 'Connect',
-  description: 'Connect to an Interaction Center server',
+  description: 'Connect to an Interaction Center® server',
   cacheable: false,
   sync: false,
   inputs: { // {{{2
@@ -63,8 +63,9 @@ module.exports = { // {{{
         language:       'en-US',
       },
     }, // }}}3
-    missingProperty: { example: { name: 'property_name', message: 'Human readable error text' } },
-    invalidProperty: { example: { name: 'property_name', message: 'Human readable error text' } },
+    missingProperty:         { example: { name: 'property_name', message: 'Human readable error text' } },
+    invalidProperty:         { example: { name: 'property_name', message: 'Human readable error text' } },
+    deprecatedResource:      { example: { name: 'resource_name', message: 'Human readable error text' } },
     notAcceptingConnections: { example: { alternateHosts: ['server1', 'server2'], message: 'Human readable error text' }, },
     serverUnavailable:       { example: { alternateHosts: ['server1', 'server2'], message: 'Human readable error text' }, },
     icws_error: { // {{{3

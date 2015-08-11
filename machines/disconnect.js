@@ -1,6 +1,6 @@
 module.exports = {
   friendlyName: 'Disconnect',
-  description: 'Disconnect from an Interaction Center server',
+  description: 'Disconnect from an Interaction Center® server',
   cacheable: false,
   sync: false,
   inputs: { // {{{2
@@ -33,7 +33,7 @@ module.exports = {
       errorCode: 0,
       message:   'Human readable error text',
     }, // }}}3
-    error: { description: 'Unexpected error occured.' },
+    error: { 'Unexpected error occured.' },
   }, // }}}2
   fn: function (inputs,exits) // {{{2
   {
