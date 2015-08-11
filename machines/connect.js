@@ -92,9 +92,8 @@ module.exports = { // {{{
 
     console.log('Connecting to ' + inputs.server + ' as ' + inputs.userID);
 
-    request(
+    request.post(
       {
-        method:  'POST',
         url:     inputs.protocol + '://' + inputs.server + ':' + inputs.port + '/icws/connection',
         headers: {
           'Accept-Language': inputs.language,
