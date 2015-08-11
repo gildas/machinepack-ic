@@ -18,7 +18,8 @@ npm-debug.log
 *~
 .idea
 nbproject
-
+tmp/
+log/
 
 ############################
 # Tests
